@@ -4,32 +4,19 @@ const cors = require("cors");
 const path = require("path");
 const nodemailer = require("nodemailer");
 
-const allowCors = fn => async (req, res) => {
-    res.setHeader('Access-Control-Allow-Credentials', true)
-    res.setHeader('Access-Control-Allow-Origin', '*')
-    // another common pattern
-    // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-    )
-    if (req.method === 'OPTIONS') {
-      res.status(200).end()
-      return
-    }
-    return await fn(req, res)
-  }
+const app = express();
+app.use(express.json)
 
-  const handler = (req, res) => {
-    const d = new Date()
-    res.end(d.toString())
-  }
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Or, specify your frontend's origin for better security
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', true); // If you need to send cookies
+    next();
 
-  module.exports = allowCors(handler)
+  })
 
 // server used to send send emails
-const app = express();
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./html/index.html"));
 });
