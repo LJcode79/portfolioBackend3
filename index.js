@@ -20,14 +20,14 @@ app.get('/hi',(req,res) => {
 
 // app.use("/", router);
 require('dotenv').config();
-const contactEmail = nodemailer.createTransport({
+// const contactEmail = nodemailer.createTransport({
 
 
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.REACT_APP_EMAIL,
-    pass: process.env.REACT_APP_EMAILPASSWORD,
-  }
-});
+//   host: 'smtp.gmail.com',
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     user: process.env.REACT_APP_EMAIL,
+//     pass: process.env.REACT_APP_EMAILPASSWORD,
+//   }
+// });
