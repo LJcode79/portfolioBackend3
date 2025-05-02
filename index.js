@@ -11,5 +11,5 @@ app.get('/', (req, res) => {
   });
 
 app.get('/hi',(req,res) => {
-    res.send('hii')
+    res.send('hiii')
 })
