@@ -13,3 +13,7 @@ app.get('/', (req, res) => {
 app.get('/hi',(req,res) => {
     res.send('hiii')
 })
+
+app.listen(5000,()=> {
+    console.log('listening on 5000')
+})
