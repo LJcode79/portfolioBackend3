@@ -18,7 +18,7 @@ app.get('/hi',(req,res) => {
 //     console.log('listening on 5000')
 // })
 
-app.use("/", router);
+// app.use("/", router);
 require('dotenv').config();
 const contactEmail = nodemailer.createTransport({
 
