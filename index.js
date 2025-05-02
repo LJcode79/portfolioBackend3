@@ -4,9 +4,6 @@ const cors = require("cors");
 const path = require("path");
 const nodemailer = require("nodemailer");
 
-app.use(cors({
-    origin: "https://lawrencejohn.netlify.app"
-  }));
 
 // server used to send send emails
 const app = express();
