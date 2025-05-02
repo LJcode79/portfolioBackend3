@@ -5,22 +5,7 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 
 
-const allowCors = fn => async (req, res) => {
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  // another common pattern
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  )
-  if (req.method === 'OPTIONS' || req.method === 'POST') {
-    res.status(200).end()
-    return
-  }
-  return await fn(req, res)
-}
+app.use(cors());
 
 const app = express();
 
@@ -53,7 +38,7 @@ contactEmail.verify((error) => {
   }
 });
 
-module.exports = allowCors(app.post("/contact", (req, res) => {
+app.post("/contact", (req, res) => {
   const name = req.body.firstName + req.body.lastName;
   const email = req.body.email;
   const message = req.body.message;
@@ -74,7 +59,7 @@ module.exports = allowCors(app.post("/contact", (req, res) => {
       res.json({ code: 200, status: "Message Sent" });
     }
   });
-}));
+});
 
 app.listen(5000, () => {
   console.log("listening on 5000");
