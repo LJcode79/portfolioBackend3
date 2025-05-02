@@ -18,8 +18,8 @@ app.get('/hi',(req,res) => {
 //     console.log('listening on 5000')
 // })
 
-const app = express();
-app.use(express.json());
+// const app = express();
+// app.use(express.json());
 // app.use("/", router);
 // require('dotenv').config();
 
