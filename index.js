@@ -6,9 +6,9 @@ const nodemailer = require("nodemailer");
 
 // server used to send send emails
 const app = express();
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, './html/index.html'))
-//   });
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './html/index.html'))
+  });
 
 app.get('/hi',(req,res) => {
     res.send('hii')
@@ -19,7 +19,7 @@ app.get('/hi',(req,res) => {
 // })
 
 // app.use("/", router);
-require('dotenv').config();
+// require('dotenv').config();
 // const contactEmail = nodemailer.createTransport({
 
 
