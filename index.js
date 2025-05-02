@@ -17,3 +17,17 @@ app.get('/hi',(req,res) => {
 app.listen(5000,()=> {
     console.log('listening on 5000')
 })
+
+app.use("/", router);
+require('dotenv').config();
+const contactEmail = nodemailer.createTransport({
+
+
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.REACT_APP_EMAIL,
+    pass: process.env.REACT_APP_EMAILPASSWORD,
+  }
+});
