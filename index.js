@@ -14,9 +14,9 @@ app.get('/hi',(req,res) => {
     res.send('hi')
 })
 
-// app.listen(5000,()=> {
-//     console.log('listening on 5000')
-// })
+app.listen(5000,()=> {
+    console.log('listening on 5000')
+})
 
 // const app = express();
 // app.use(express.json());
