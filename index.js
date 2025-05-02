@@ -10,9 +10,9 @@ const nodemailer = require("nodemailer");
 //     res.sendFile(path.join(__dirname, './html/index.html'))
 //   });
 
-// app.get('/hi',(req,res) => {
-//     res.send('hi')
-// })
+app.get('/hi',(req,res) => {
+    res.send('hi')
+})
 
 // app.listen(5000,()=> {
 //     console.log('listening on 5000')
